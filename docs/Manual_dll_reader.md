@@ -21,10 +21,9 @@ To install the module in Rocketbot Studio, it can be done in two ways:
 
 ### Get functions from dll file
   
-Get the available functions of a dll file. Currently available for Windows; must have Visual Studio installed.
+Get the available functions of a dll file.
 |Parameters|Description|example|
 | --- | --- | --- |
-|Path to 'dumpbin.exe'|Path to 'dumpbin.exe' in Visual Studio folder.|C:\Program Files (x86)\Microsoft Visual Studio\2019\BuildTools\VC\Tools\MSVC\bin\Hostx64\x64\dumpbin.exe|
 |Path to dll file|Path to the dll file to read.|C:\Users\user\Desktop\file.dll|
 |Assign result to variable|Assign connection result to variable.|result|
 
