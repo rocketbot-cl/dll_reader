@@ -7,7 +7,7 @@
         "pr": "Ler e usar funções de arquivos DLL"
     },
     "disclaimer": "THERE IS NO WARRANTY FOR THE PROGRAM, TO THE EXTENT PERMITTED BY APPLICABLE LAW. EXCEPT WHEN OTHERWISE STATED IN WRITING THE COPYRIGHT HOLDERS AND/OR OTHER PARTIES PROVIDE THE PROGRAM “AS IS” WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE. THE ENTIRE RISK AS TO THE QUALITY AND PERFORMANCE OF THE PROGRAM IS WITH YOU. SHOULD THE PROGRAM PROVE DEFECTIVE, YOU ASSUME THE COST OF ALL NECESSARY SERVICING, REPAIR OR CORRECTION.",
-    "version": "1.0.0",
+    "version": "2.0.1",
     "license": "MIT",
     "homepage": "http://rocketbot.com/",
     "linux": false,
@@ -28,45 +28,25 @@
         {
             "es": {
                 "title": "Obtener funciones de archivo dll",
-                "description": "Obtén las funciones disponibles de un archivo dll. Actualmente disponible para Windows; debe tener Visual Studio instalado.",
+                "description": "Obtén las funciones disponibles de un archivo dll.",
                 "title_options": "Seleccione una opción",
                 "options": null
             },
             "en": {
                 "title": "Get functions from dll file",
-                "description": "Get the available functions of a dll file. Currently available for Windows; must have Visual Studio installed.",
+                "description": "Get the available functions of a dll file.",
                 "title_options": "Select Option",
                 "options": null
             },
             "pr": {
                 "title": "Obter funções do arquivo dll",
-                "description": "Obtenha as funções disponíveis de um arquivo dll. Atualmente disponível para Windows; deve ter o Visual Studio instalado.",
+                "description": "Obtenha as funções disponíveis de um arquivo dll.",
                 "title_options": "Selecione uma opção",
                 "options": null
             },
             "form": {
                 "css": "modal-lg",
                 "inputs": [
-                    {
-                        "type": "file_select",
-                        "title": {
-                            "es": "Ruta a 'dumpbin.exe'",
-                            "en": "Path to 'dumpbin.exe'",
-                            "pr": "Caminho para 'dumpbin.exe'"
-                        },
-                        "description": {
-                            "es": "Ruta a 'dumpbin.exe' en la carpeta de Visual Studio.",
-                            "en": "Path to 'dumpbin.exe' in Visual Studio folder.",
-                            "pr": "Caminho para 'dumpbin.exe' na pasta do Visual Studio."
-                        },
-                        "placeholder": {
-                            "es": "C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\BuildTools\\VC\\Tools\\MSVC\\bin\\Hostx64\\x64\\dumpbin.exe",
-                            "en": "C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\BuildTools\\VC\\Tools\\MSVC\\bin\\Hostx64\\x64\\dumpbin.exe",
-                            "pr": "C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\BuildTools\\VC\\Tools\\MSVC\\bin\\Hostx64\\x64\\dumpbin.exe"
-                        },
-                        "id": "dumpbin",
-                        "css": "col-md-12"
-                    },
                     {
                         "type": "file_select",
                         "title": {

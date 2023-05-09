@@ -16,7 +16,7 @@ Para instalar librerias se debe ingresar por terminal a la carpeta "libs"
 """
 import os
 import sys
-import subprocess
+from subprocess import Popen, PIPE
 import traceback
 import ctypes
 
@@ -34,8 +34,10 @@ cur_path_x86 = os.path.join(cur_path, 'Windows' + os.sep +  'x86' + os.sep)
 
 if sys.maxsize > 2**32 and cur_path_x64 not in sys.path:
         sys.path.append(cur_path_x64)
+        dumpbin = os.path.join(cur_path_x64, 'dumpbin.exe')
 if sys.maxsize > 32 and cur_path_x86 not in sys.path:
         sys.path.append(cur_path_x86)
+        dumpbin = os.path.join(cur_path_x86, 'dumpbin.exe')
         
         
 types = {
@@ -49,12 +51,11 @@ types = {
 module = GetParams("module")
 
 if module == "get_functions":
-    dumpbin = GetParams("dumpbin")
     dll_path = GetParams("dll_path")
     result = GetParams("result")
     
     try:
-        response = subprocess.Popen(f"{dumpbin} {dll_path} /exports", stdout=subprocess.PIPE, stdin=subprocess.PIPE, stderr=subprocess.PIPE).communicate()
+        response = Popen(f"{dumpbin} {dll_path} /exports", stdout=PIPE, stdin=PIPE, stderr=PIPE).communicate()
         response = response[0].decode().split("name")
         response = response[2].split("\r\n")
         print(response)
@@ -64,10 +65,10 @@ if module == "get_functions":
             func = r_[3] if len(r_)>3 else ""
             if func != "":
                 functions.append(func)
-            
         SetVar(result, functions)
     except Exception as e:
-        SetVar(result, "")
+        traceback.print_exc()
+        SetVar(result, False)
         raise e
     
     
