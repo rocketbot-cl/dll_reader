@@ -32,13 +32,14 @@ cur_path = os.path.join(base_path, 'modules', 'dll_reader', 'libs')
 cur_path_x64 = os.path.join(cur_path, 'Windows' + os.sep +  'x64' + os.sep)
 cur_path_x86 = os.path.join(cur_path, 'Windows' + os.sep +  'x86' + os.sep)
 
-if sys.maxsize > 2**32 and cur_path_x64 not in sys.path:
+if sys.maxsize > 2**32:
+    dumpbin = os.path.join(cur_path_x64, 'dumpbin.exe')
+    if cur_path_x64 not in sys.path:
         sys.path.append(cur_path_x64)
-        dumpbin = os.path.join(cur_path_x64, 'dumpbin.exe')
-if sys.maxsize > 32 and cur_path_x86 not in sys.path:
+elif sys.maxsize <= 2**32:
+    dumpbin = os.path.join(cur_path_x86, 'dumpbin.exe')
+    if cur_path_x86 not in sys.path:
         sys.path.append(cur_path_x86)
-        dumpbin = os.path.join(cur_path_x86, 'dumpbin.exe')
-        
         
 types = {
     "bool": ctypes.c_bool,
@@ -58,7 +59,6 @@ if module == "get_functions":
         response = Popen(f"{dumpbin} {dll_path} /exports", stdout=PIPE, stdin=PIPE, stderr=PIPE).communicate()
         response = response[0].decode().split("name")
         response = response[2].split("\r\n")
-        print(response)
         functions = []
         for r in response:
             r_ = r.split()
